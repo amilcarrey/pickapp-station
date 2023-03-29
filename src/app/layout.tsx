@@ -1,19 +1,16 @@
 import './globals.css'
 
 export default function RootLayout({
-   children,
+  children,
 }: {
-   children: React.ReactNode
+  children: React.ReactNode
 }) {
-   return (
-      <html lang="en">
-         {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
-         <head />
-
-         <body>{children}</body>
-      </html>
-   )
+  return (
+    <html>
+      <head />
+      <body className='bg-gradient-to-b from-[#ff9900] to-[#bf8835e0]'>
+          {children}
+      </body>
+    </html>
+  )
 }
