@@ -15,19 +15,10 @@ const RouteTransition = ({ children }: { children: React.ReactNode }) => {
                stiffness: 260,
                damping: 20,
             }}
-            className="bg-gradient-to-b from-[#ff9900] to-[#bf8835e0]"
+            className="bg-white"
          >
             <div className="container mx-auto flex h-screen flex-col items-center justify-start">
-               <Link href={'/'}>
-                  {' '}
-                  <Image
-                     src="/logo.svg"
-                     alt="logo"
-                     width={0}
-                     height={0}
-                     className="h-60 w-full text-[#1c4527]"
-                  />
-               </Link>
+               <Link className='text-primary text-6xl my-20' href={'/'}> pickapp</Link>
                {children}
             </div>
          </motion.main>

@@ -23,8 +23,9 @@
       "paths": {
          "@/*": ["./src/*"],
          "@ui/*": ["./src/components/*"],
-         "@primitives/*": ["./src/primitives/*"],
-         "@style/*": ["./src/styles/*"]
+         "@sections/*": ["./src/modules/sections/*"],
+         "@elements/*": ["./src/modules/elements/*"],
+         "@hooks/*": ["./src/hooks/*"]
       }
    },
    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
