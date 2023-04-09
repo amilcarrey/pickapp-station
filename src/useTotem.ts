@@ -4,7 +4,8 @@ import { devtools } from 'zustand/middleware'
 import { OperationType, TotemState, TotemActions, Totem } from '@/types/TotemTypes'
 
 const initialState = {
-   operationType: OperationType.PICKUP,
+   owner: null,
+   operationType: null,
    size: '',
    ciu: 0,
    keywordNeeded: false,
@@ -14,17 +15,18 @@ const initialState = {
 export const useTotem = create(devtools(
    immer<TotemState & TotemActions>(set => ({
       totem: initialState,
-      setTotem: (totem: Totem) => set((state) => {state.totem = totem}),
+      setOwner: (owner: boolean) => set((state) => { state.totem.owner = owner }),
+      setTotem: (totem: Totem) => set((state) => { state.totem = totem }),
       setKeywordNeeded: (keywordNeeded: boolean) => set((state) => { state.totem.keywordNeeded = keywordNeeded }),
       setOperationtype: (operationType: OperationType) => set((state) => { state.totem.operationType = operationType }),
       setCIU: (ciu: number) => set((state) => {
          state.totem.ciu = ciu
       }),
-      setSize: (size:string) => set((state)=>{state.totem.size = size}),
-      setKeywordUsed: (keyword: string) => set((state)=>{state.totem.keywordUsed = keyword}),
-      pickUpAll: (ciu:string) => Promise.resolve(true),
+      setSize: (size: string) => set((state) => { state.totem.size = size }),
+      setKeywordUsed: (keyword: string) => set((state) => { state.totem.keywordUsed = keyword }),
+      pickUpAll: (ciu: string) => Promise.resolve(true),
       reset: () => {
-         set((state) =>{ state.totem = initialState})
+         set((state) => { state.totem = initialState })
       },
    }))))
 

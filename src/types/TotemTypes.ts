@@ -11,7 +11,8 @@ export enum PackageSize {
 }
 
 export interface Totem {
-   operationType: OperationType,
+   owner: boolean | null,
+   operationType: OperationType | null,
    size: string
    ciu: number,
    keywordNeeded: boolean
@@ -26,9 +27,10 @@ export type TotemActions = {
    setTotem: (totem: Totem) => void
    setKeywordNeeded: (keywordNeeded: boolean) => void
    setOperationtype: (operationType: OperationType) => void
-   setSize: (size:string) => void
+   setSize: (size: string) => void
    setCIU: (ciu: number) => void
+   setOwner: (owner: boolean) => void
    setKeywordUsed: (keyword: string) => void
-   pickUpAll: (ciu:string) => Promise<boolean>
+   pickUpAll: (ciu: string) => Promise<boolean>
    reset: () => void
 }

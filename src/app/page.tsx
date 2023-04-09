@@ -38,7 +38,7 @@ const Home = () => {
          className="tex-center flex h-screen w-screen cursor-pointer flex-col items-center justify-center bg-white"
       >
          <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="logo"
             width={0}
             height={0}

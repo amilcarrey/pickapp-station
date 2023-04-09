@@ -22,6 +22,9 @@ module.exports = {
          success: colors.teal,
          warning: colors.yellow
       },
+      fontFamily: {
+         sans: ['var(--font)']
+      },
       extend: {
          borderRadius: { DEFAULT: '0.5rem' },
       },

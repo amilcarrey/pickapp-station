@@ -1,4 +1,10 @@
 import './globals.css'
+import { Noto_Sans } from '@next/font/google'
+const font = Noto_Sans({
+   subsets: ['latin'],
+   variable: '--font',
+   weight: '300',
+})
 
 export default function RootLayout({
    children,
@@ -6,7 +12,7 @@ export default function RootLayout({
    children: React.ReactNode
 }) {
    return (
-      <html>
+      <html lang="es" className={font.variable}>
          <head />
          <body className="bg-white">{children}</body>
       </html>

@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import Image from 'next/image'
 import Link from 'next/link'
+import Image from 'next/image'
 const RouteTransition = ({ children }: { children: React.ReactNode }) => {
    return (
       <AnimatePresence initial={true}>
@@ -15,10 +15,15 @@ const RouteTransition = ({ children }: { children: React.ReactNode }) => {
                stiffness: 260,
                damping: 20,
             }}
-            className="bg-white"
+            className="border-4 border-primary bg-white/60"
          >
             <div className="container mx-auto flex h-screen flex-col items-center justify-start">
-               <Link className='text-primary text-6xl my-20' href={'/'}> pickapp</Link>
+               <Link
+                  className="my-20 text-6xl font-bold text-primary"
+                  href={'/'}
+               >
+                  <Image src="/logo.png" alt="logo" width={300} height={300} />
+               </Link>
                {children}
             </div>
          </motion.main>
