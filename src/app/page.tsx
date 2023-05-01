@@ -35,16 +35,16 @@ const Home = () => {
             damping: 20,
          }}
          onClick={handleClick}
-         className="tex-center flex h-screen w-screen cursor-pointer flex-col items-center justify-center bg-white"
+         className="tex-center bg-dark flex h-screen w-screen cursor-pointer flex-col items-center justify-around"
       >
          <Image
-            src="/logo.png"
+            src="/logo.svg"
             alt="logo"
             width={0}
             height={0}
             className="h-60 w-full text-secondary"
          />
-         <PageTitle title="Presione para comenzar" accentWord="Presione" />
+         <PageTitle size="S" title="Presione para comenzar" accentWord="Presione" />
       </motion.main>
    )
 }
