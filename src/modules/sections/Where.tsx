@@ -7,8 +7,8 @@ const Where = () => {
    const setOwner = useTotem((s) => s.setOwner)
    return (
       <>
-         <PageTitle title="Seleccione tipo de usuario" accentWord="dónde" />
-         <div className="grid grid-cols-2 place-content-stretch gap-8">
+         <PageTitle title="Seleccione tipo de usuario" accentWord="Seleccione" />
+         <div className="mt-8 grid grid-cols-2 place-content-stretch gap-8">
             <BigOption
                onClick={() => setOwner(true)}
                title="Propietario"

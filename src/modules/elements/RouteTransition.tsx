@@ -15,14 +15,10 @@ const RouteTransition = ({ children }: { children: React.ReactNode }) => {
                stiffness: 260,
                damping: 20,
             }}
-            className="border-4 border-primary bg-white/60"
          >
             <div className="container mx-auto flex h-screen flex-col items-center justify-start">
-               <Link
-                  className="my-20 text-6xl font-bold text-primary"
-                  href={'/'}
-               >
-                  <Image src="/logo.png" alt="logo" width={300} height={300} />
+               <Link className="text-pick my-20 text-6xl font-bold" href={'/'}>
+                  <Image src="/logo.svg" alt="logo" width={600} height={600} />
                </Link>
                {children}
             </div>
