@@ -5,8 +5,8 @@ import { UserIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/navigation'
 import { useUser } from '@hooks/useUser'
 import useApi from '@/hooks/useApi'
-
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, '<', 0, 'OK']
+import Numpad from '../sections/login/elements/Numpad'
+import { Button } from '@/components/ui/button'
 
 const Login = () => {
    const cuiInputnRef = useRef<HTMLInputElement>(null)
@@ -29,46 +29,10 @@ const Login = () => {
 
    useEffect(() => {
       if (user) {
-         setOpen(false)
-         console.log(user)
          router.push('/what')
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [user])
-
-   const numericUpdate = (e: number | string) => {
-      const deleteLast = (
-         setValue: Dispatch<SetStateAction<number | undefined>>
-      ) => {
-         setValue((prev) => {
-            if (prev === undefined) return
-            const prevString = String(prev)
-            if (prevString.length === 1) {
-               return undefined
-            } else {
-               return Number(prevString.slice(0, prevString.length - 1))
-            }
-         })
-      }
-      const concatValue = (
-         setValue: Dispatch<SetStateAction<number | undefined>>,
-         e: number
-      ) => {
-         setValue((prev) => {
-            if (prev === undefined) {
-               return Number(e)
-            } else {
-               return Number(String(prev) + String(e))
-            }
-         })
-      }
-      if (e === '<') return deleteLast(claveSelected ? setClave : setCui)
-      if (e === 'OK') {
-         return claveInputRef.current && claveInputRef.current.focus()
-      }
-
-      concatValue(claveSelected ? setClave : setCui, e as number)
-   }
 
    return (
       <>
@@ -104,32 +68,23 @@ const Login = () => {
                      />
                   </div>
                </div>
-
-               <div id="keyboard" className="grid w-3/4 grid-cols-3 gap-2">
-                  {numbers.map((number, index) => (
-                     <button
-                        onClick={() => numericUpdate(number)}
-                        key={index}
-                        className="rounded-2xl border-2  border-black/25 px-3 py-3"
-                     >
-                        {number}
-                     </button>
-                  ))}
-               </div>
+               <Numpad
+                  setNumber={claveSelected ? setClave : setCui}
+                  nextFocus={!claveSelected ? claveInputRef : null}
+               />
             </div>
          </div>
 
-         <div className="mx-auto mt-5 w-3/4 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
-            <button
-               type="button"
-               className="border-transparent focus:ring-indigo-500 inline-flex w-full justify-center rounded-md border bg-[#ff9900] px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-[#2d6a3b] focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:bg-[#ff9900]/70 sm:col-start-2 sm:text-sm"
+         <div className="flex flex-col w-1/4 gap-6">
+            <Button variant={'secondary'}>Cancelar</Button>
+            <Button
                onClick={handleLogin}
                disabled={cui === undefined || clave === undefined}
             >
                {loadingUser ? (
                   <svg
                      aria-hidden="true"
-                     className="fill-blue-600 mr-2 h-8 w-8 animate-spin text-gray-200 dark:text-gray-600"
+                     className="mr-2 h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
                      viewBox="0 0 100 101"
                      fill="none"
                      xmlns="http://www.w3.org/2000/svg"
@@ -146,14 +101,7 @@ const Login = () => {
                ) : (
                   'Ingresar'
                )}
-            </button>
-            <button
-               type="button"
-               className="focus:ring-indigo-500 mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:col-start-1 sm:mt-0 sm:text-sm"
-               // onClick={() => setOpen(false)}
-            >
-               Cancelar
-            </button>
+            </Button>
          </div>
       </>
    )
