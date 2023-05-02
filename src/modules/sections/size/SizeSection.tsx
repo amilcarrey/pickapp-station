@@ -3,8 +3,8 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import { useTotem } from '@hooks/useTotem'
 import { useProperty } from '@/hooks/useProperty'
-import PageTitle from '../elements/PageTitle'
-import BigOption from '../elements/options/BigOption'
+import PageTitle from '../../elements/PageTitle'
+import BigOption from '../../elements/options/BigOption'
 
 const sizes = ['S', 'M', 'L']
 

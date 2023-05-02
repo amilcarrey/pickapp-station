@@ -12,7 +12,7 @@ const initialState = {
 export const useProperty = create(devtools(
    immer<PropertyState & PropertyActions>(
       set => ({
-         property: null,
+         property: initialState,
          setProperty: (property: PropertyDetails) => set((state) => { state.property = property }),
          reset: () => {
             set((state) => { state.property = initialState })
