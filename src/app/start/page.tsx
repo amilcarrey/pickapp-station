@@ -15,6 +15,7 @@ import Size from '@/modules/sections/size/SizeSection'
 import KeyWords from '@/modules/sections/keyword/KeywordSection'
 import Open from '@/modules/sections/open/OpenSection'
 import Thanks from '@/modules/sections/thanks/ThanksSection'
+import Scan from '@/modules/sections/scan/ScanSection'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
@@ -30,7 +31,8 @@ const StartPage = () => {
             {/* {totem.owner ? <Size /> : null} */}
             {/* {totem.owner ? <KeyWords /> : null} */}
             {/* {totem.owner ? <Open /> : null} */}
-            {totem.owner ? <Thanks /> : null}
+            {/* {totem.owner ? <Thanks /> : null} */}
+            {totem.owner ? <Scan /> : null}
 
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}
