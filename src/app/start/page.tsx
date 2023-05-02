@@ -9,17 +9,18 @@ import { TruckDelivery, Home } from 'tabler-icons-react'
 import BigOption from '@/modules/elements/BigOption'
 import { useTotem } from '@/useTotem'
 import Where from '@/modules/sections/Where'
+import What from '@/modules/sections/what/WhatSection'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
 
-   const [isOwner, setIsOwner] = useState(false)
    const [keyWords, setKeyWords] = useState(false)
    return (
       <RouteTransition>
          <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
             {!totem.owner ? <Where /> : null}
-            {totem.owner ? <Login /> : null}
+            {/* {totem.owner ? <Login /> : null} */}
+            {totem.owner ? <What /> : null}
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}
                   title="Propietario"
