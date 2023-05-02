@@ -8,11 +8,13 @@ import KeyWordsModal from '@elements/KeyWordsModal'
 import { TruckDelivery, Home } from 'tabler-icons-react'
 import BigOption from '@/modules/elements/options/BigOption'
 import { useTotem } from '@/useTotem'
-import Where from '@/modules/sections/Where'
+import Where from '@/modules/sections/where/WhereSection'
 import What from '@/modules/sections/what/WhatSection'
 import Deposit from '@/modules/sections/deposit/DepositSection'
 import Size from '@/modules/sections/size/SizeSection'
 import KeyWords from '@/modules/sections/keyword/KeywordSection'
+import Open from '@/modules/sections/open/OpenSection'
+import Thanks from '@/modules/sections/thanks/ThanksSection'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
@@ -26,7 +28,9 @@ const StartPage = () => {
             {/* {totem.owner ? <What /> : null} */}
             {/* {totem.owner ? <Deposit /> : null} */}
             {/* {totem.owner ? <Size /> : null} */}
-            {totem.owner ? <KeyWords /> : null}
+            {/* {totem.owner ? <KeyWords /> : null} */}
+            {/* {totem.owner ? <Open /> : null} */}
+            {totem.owner ? <Thanks /> : null}
 
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}

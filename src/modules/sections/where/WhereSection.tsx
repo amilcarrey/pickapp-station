@@ -1,7 +1,7 @@
 import { useTotem } from '@/useTotem'
 import { Home, TruckDelivery } from 'tabler-icons-react'
-import BigOption from '../elements/options/BigOption'
-import PageTitle from '../elements/PageTitle'
+import BigOption from '../../elements/options/BigOption'
+import PageTitle from '../../elements/PageTitle'
 
 const Where = () => {
    const setOwner = useTotem((s) => s.setOwner)
