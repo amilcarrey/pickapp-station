@@ -11,6 +11,7 @@ import { useTotem } from '@/useTotem'
 import Where from '@/modules/sections/Where'
 import What from '@/modules/sections/what/WhatSection'
 import Deposit from '@/modules/sections/deposit/DepositSection'
+import Size from '@/modules/sections/Size'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
@@ -22,7 +23,9 @@ const StartPage = () => {
             {!totem.owner ? <Where /> : null}
             {/* {totem.owner ? <Login /> : null} */}
             {/* {totem.owner ? <What /> : null} */}
-            {totem.owner ? <Deposit /> : null}
+            {/* {totem.owner ? <Deposit /> : null} */}
+            {totem.owner ? <Size /> : null}
+
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}
                   title="Propietario"
