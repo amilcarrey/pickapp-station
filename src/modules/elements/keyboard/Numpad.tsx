@@ -5,9 +5,9 @@ interface NumPadProps {
    setNumber: Dispatch<SetStateAction<number | undefined>>
    nextFocus: RefObject<HTMLInputElement> | null
 }
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, '<', 0, 'OK']
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'BORRAR', 0, 'OK']
 
-const Numpad = ({ setNumber, nextFocus }: NumPadProps) => {
+const Numpad = ({ setNumber, nextFocus = null }: NumPadProps) => {
    const deleteLast = (
       setValue: Dispatch<SetStateAction<number | undefined>>
    ) => {
@@ -50,6 +50,13 @@ const Numpad = ({ setNumber, nextFocus }: NumPadProps) => {
             <Button
                onClick={() => numericUpdate(number)}
                key={index}
+               variant={
+                  number === 'OK'
+                     ? 'default'
+                     : number === 'BORRAR'
+                     ? 'destructive'
+                     : 'outline'
+               }
             >
                {number}
             </Button>

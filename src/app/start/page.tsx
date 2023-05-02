@@ -6,10 +6,11 @@ import Login from '@/modules/sections/login/LoginSection'
 import CustomAction from '@elements/CustomAction'
 import KeyWordsModal from '@elements/KeyWordsModal'
 import { TruckDelivery, Home } from 'tabler-icons-react'
-import BigOption from '@/modules/elements/BigOption'
+import BigOption from '@/modules/elements/options/BigOption'
 import { useTotem } from '@/useTotem'
 import Where from '@/modules/sections/Where'
 import What from '@/modules/sections/what/WhatSection'
+import Deposit from '@/modules/sections/deposit/DepositSection'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
@@ -20,7 +21,8 @@ const StartPage = () => {
          <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
             {!totem.owner ? <Where /> : null}
             {/* {totem.owner ? <Login /> : null} */}
-            {totem.owner ? <What /> : null}
+            {/* {totem.owner ? <What /> : null} */}
+            {totem.owner ? <Deposit /> : null}
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}
                   title="Propietario"

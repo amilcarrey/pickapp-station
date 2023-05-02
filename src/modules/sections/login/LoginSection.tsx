@@ -3,7 +3,7 @@ import { useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useUser } from '@hooks/useUser'
 import useApi from '@/hooks/useApi'
-import Numpad from './elements/Numpad'
+import Numpad from '../../elements/keyboard/Numpad'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 

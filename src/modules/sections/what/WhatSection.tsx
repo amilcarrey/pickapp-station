@@ -5,7 +5,7 @@ import { useUser } from '@hooks/useUser'
 import { OperationType } from '@/types/TotemTypes'
 import { useRouter } from 'next/navigation'
 import PageTitle from '@/modules/elements/PageTitle'
-import BigOption from '@/modules/elements/BigOption'
+import BigOption from '@/modules/elements/options/BigOption'
 import {
    PackageSearchIcon,
    PackagePlusIcon,
