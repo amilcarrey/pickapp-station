@@ -14,12 +14,30 @@ const Scan = () => {
    const inputClases = cn(useKeyboard ? 'visible w-1/4' : 'invisible')
    return (
       <>
-         <PageTitle title="Escanea el QR" accentWord="Escanea" />
+         <ScanLine className="mb-32 h-60 w-60 shadow-md" />
+         <PageTitle
+            title={!useKeyboard ? 'Escanea el QR' : 'Ingresa tu código'}
+            accentWord={!useKeyboard ? 'Escanea' : 'Ingresa'}
+         />
          <div className="mt-24 flex w-1/2 flex-col items-center justify-between gap-4">
-            <ScanLine className="mb-32 h-60 w-60 shadow-md" />
-            <Input placeholder="Inserte el código" className={inputClases} />
+            <Input
+               readOnly
+               autoComplete="off"
+               value={value}
+               placeholder="Código"
+               className={inputClases}
+               type="number"
+            />
             {useKeyboard ? (
-               <Numpad setNumber={setValue} nextFocus={null} />
+               <>
+                  <Numpad setNumber={setValue} nextFocus={null} />
+                  <Button
+                     className="w-3/4"
+                     onClick={() => setUseKeyboard(false)}
+                  >
+                     Me arrepentí, escanear código.
+                  </Button>
+               </>
             ) : (
                <Button onClick={() => setUseKeyboard(true)}>
                   Tengo un código →

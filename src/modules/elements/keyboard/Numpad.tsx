@@ -15,7 +15,7 @@ const Numpad = ({ setNumber, nextFocus = null }: NumPadProps) => {
          if (prev === undefined) return
          const prevString = String(prev)
          if (prevString.length === 1) {
-            return undefined
+            return 0
          } else {
             return Number(prevString.slice(0, prevString.length - 1))
          }
@@ -36,7 +36,7 @@ const Numpad = ({ setNumber, nextFocus = null }: NumPadProps) => {
    }
 
    const numericUpdate = (e: number | string) => {
-      if (e === '<') return deleteLast(setNumber)
+      if (e === 'BORRAR') return deleteLast(setNumber)
       if (e === 'OK') {
          if (!nextFocus) return
          return nextFocus.current && nextFocus.current.focus()

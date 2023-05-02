@@ -16,6 +16,7 @@ import KeyWords from '@/modules/sections/keyword/KeywordSection'
 import Open from '@/modules/sections/open/OpenSection'
 import Thanks from '@/modules/sections/thanks/ThanksSection'
 import Scan from '@/modules/sections/scan/ScanSection'
+import Verification from '@/modules/sections/verification/VerificationSection'
 
 const StartPage = () => {
    const totem = useTotem((s) => s.totem)
@@ -33,6 +34,7 @@ const StartPage = () => {
             {/* {totem.owner ? <Open /> : null} */}
             {/* {totem.owner ? <Thanks /> : null} */}
             {totem.owner ? <Scan /> : null}
+            {/* {totem.owner ? <Verification /> : null} */}
 
             {/* <CustomAction
                   onClick={() => setIsOwner(true)}

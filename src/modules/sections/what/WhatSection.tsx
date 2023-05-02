@@ -11,7 +11,7 @@ import {
    PackagePlusIcon,
    ArchiveRestoreIcon,
 } from 'lucide-react'
-import BigOptionContainer from '@/modules/elements/BigOptionContainer'
+import BigOptionContainer from '@/modules/elements/options/BigOptionContainer'
 
 const What = () => {
    const user = useUser((s) => s.user)
