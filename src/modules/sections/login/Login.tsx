@@ -1,12 +1,11 @@
-import { Dispatch, FC, SetStateAction, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useRef, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { UserIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/navigation'
 import { useUser } from '@hooks/useUser'
 import useApi from '@/hooks/useApi'
-import Numpad from '../sections/login/elements/Numpad'
+import Numpad from './elements/Numpad'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 const Login = () => {
    const cuiInputnRef = useRef<HTMLInputElement>(null)
@@ -16,7 +15,6 @@ const Login = () => {
    const [cui, setCui] = useState<number>()
    const [clave, setClave] = useState<number>()
    const [claveSelected, setClaveSelected] = useState(false)
-   const [accessEnabled, setaccessEnabled] = useState(false)
 
    const user = useUser((s) => s.user)
    const { getUser } = useApi()
@@ -31,17 +29,16 @@ const Login = () => {
       if (user) {
          router.push('/what')
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [user])
 
    return (
       <>
          <div className="text-center">
             <div className="mt-2 flex flex-col items-center justify-center gap-4">
-               <div className="mt-2 flex h-full flex-col gap-4">
+               <form className="mt-2 flex h-full flex-col gap-4">
                   <div className="flex items-center justify-between gap-4">
                      {/* <label htmlFor="ciu">CIU</label> */}
-                     <input
+                     <Input
                         readOnly
                         autoComplete="off"
                         ref={cuiInputnRef}
@@ -50,12 +47,11 @@ const Login = () => {
                         type="text"
                         name="ciu"
                         placeholder="CIU"
-                        className="rounded-xl border-2  border-black/25 px-4 py-1"
                      />
                   </div>
                   <div className="flex justify-between gap-4">
                      {/* <label htmlFor="clave">{user?.fullName}</label> */}
-                     <input
+                     <Input
                         readOnly
                         autoComplete="off"
                         ref={claveInputRef}
@@ -64,10 +60,9 @@ const Login = () => {
                         type="password"
                         name="clave"
                         placeholder="Clave"
-                        className="rounded-xl border-2  border-black/25 px-4 py-1"
                      />
                   </div>
-               </div>
+               </form>
                <Numpad
                   setNumber={claveSelected ? setClave : setCui}
                   nextFocus={!claveSelected ? claveInputRef : null}
@@ -75,7 +70,7 @@ const Login = () => {
             </div>
          </div>
 
-         <div className="flex flex-col w-1/4 gap-6">
+         <div className="flex w-1/4 flex-col gap-6">
             <Button variant={'secondary'}>Cancelar</Button>
             <Button
                onClick={handleLogin}

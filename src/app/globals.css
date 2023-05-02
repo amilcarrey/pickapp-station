@@ -17,7 +17,7 @@
       --card-foreground: 24, 86%, 47%;
 
       --border: 214.3 31.8% 91.4%;
-      --input: 214.3 31.8% 91.4%;
+      --input: 24, 86%, 47%;
 
       --primary: 24, 86%, 47%;
       --primary-foreground: 89, 27%, 65%;
@@ -31,7 +31,7 @@
       --destructive: 0 100% 50%;
       --destructive-foreground: 89, 27%, 65%;
 
-      --ring: 215 20.2% 65.1%;
+      --ring: 24, 86%, 47%;
 
       --radius: 0.5rem;
    }
@@ -64,7 +64,7 @@
       --destructive: 0 63% 31%;
       --destructive-foreground: 89, 27%, 65%;
 
-      --ring: 80, 17%, 53%;
+      --ring: 24, 86%, 47%;
 
       --radius: 0.5rem;
    }

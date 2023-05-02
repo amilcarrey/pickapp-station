@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import PageTitle from '@elements/PageTitle'
 import RouteTransition from '@elements/RouteTransition'
-import Login from '@elements/Login'
+import Login from '@/modules/sections/login/LoginSection'
 import CustomAction from '@elements/CustomAction'
 import KeyWordsModal from '@elements/KeyWordsModal'
 import { TruckDelivery, Home } from 'tabler-icons-react'
