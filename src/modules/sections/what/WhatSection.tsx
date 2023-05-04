@@ -67,7 +67,6 @@ const What = () => {
                )} */}
             </BigOptionContainer>
          </div>
-         {/* <PickUpAll open={openModal} setOpen={setOpenModal} /> */}
       </>
    )
 }

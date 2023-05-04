@@ -16,8 +16,8 @@ const RouteTransition = ({ children }: { children: React.ReactNode }) => {
                damping: 20,
             }}
          >
-            <div className="mx-auto flex h-screen flex-col items-center justify-start">
-               <Link className="text-pick my-20 text-6xl font-bold" href={'/'}>
+            <div className="mx-auto flex h-screen max-h-screen flex-col items-center justify-start">
+               <Link className="text-pick mt-12 text-6xl font-bold" href={'/'}>
                   <Image src="/logo.svg" alt="logo" width={600} height={600} />
                </Link>
                {children}

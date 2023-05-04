@@ -35,8 +35,8 @@ const Login = () => {
       <>
          <div className="text-center">
             <div className="mt-2 flex flex-col items-center justify-center gap-4">
-               <form className="mt-2 flex h-full flex-col gap-4">
-                  <div className="flex items-center justify-between gap-4">
+               <form className="my-24 flex flex-col items-center justify-between">
+                  <div className="mb-16 flex flex-col items-center justify-center gap-10">
                      {/* <label htmlFor="ciu">CIU</label> */}
                      <Input
                         readOnly
@@ -48,9 +48,6 @@ const Login = () => {
                         name="ciu"
                         placeholder="CIU"
                      />
-                  </div>
-                  <div className="flex justify-between gap-4">
-                     {/* <label htmlFor="clave">{user?.fullName}</label> */}
                      <Input
                         readOnly
                         autoComplete="off"
@@ -62,11 +59,11 @@ const Login = () => {
                         placeholder="Clave"
                      />
                   </div>
+                  <Numpad
+                     setNumber={claveSelected ? setClave : setCui}
+                     nextFocus={!claveSelected ? claveInputRef : null}
+                  />
                </form>
-               <Numpad
-                  setNumber={claveSelected ? setClave : setCui}
-                  nextFocus={!claveSelected ? claveInputRef : null}
-               />
             </div>
          </div>
 

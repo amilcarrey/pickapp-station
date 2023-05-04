@@ -19,7 +19,7 @@ const Where = () => {
             />
             <BigOption
                onClick={() => setOwner(false)}
-               title="Visita/Repartidor"
+               title="Visita  Repartidor"
                IconProp={TruckDelivery}
             />
          </div>

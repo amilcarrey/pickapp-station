@@ -14,7 +14,7 @@ const BigOption = ({ title, IconProp, onClick, className }: BigOptionProps) => {
          onClick={onClick}
          className={`${className} h-full`}
       >
-         <div className="flex w-full flex-col items-center justify-between gap-4 px-4 py-24">
+         <div className="flex w-full flex-col items-center justify-between gap-4 px-4 py-10">
             {IconProp && <IconProp className="h-32 w-full" />}
             <p className="text-6xl">{title}</p>
          </div>

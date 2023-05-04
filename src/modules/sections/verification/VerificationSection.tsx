@@ -17,7 +17,7 @@ const Verification = () => {
          />
 
          <div className="mt-24 flex flex-col items-center justify-between gap-4">
-            <Button>DNI existente</Button>
+            {/* <Button>DNI existente</Button> */}
             {/* <CustomOption title='DNI Invalido' to='' />
           <CustomOption title='DNI con acento' to='' />
           <CustomOption title='DNI con apostrofe' to='' /> */}

@@ -19,7 +19,7 @@ const PageTitle: FunctionComponent<PageTitleProps> = ({
    })
    return (
       <h1
-         className={`${sizeClass} text-light text-center font-extrabold tracking-tight`}
+         className={`${sizeClass} text-light text-center font-extrabold leading-tight`}
       >
          {title.split(accentWord).map((word, index) => (
             <span key={index}>
