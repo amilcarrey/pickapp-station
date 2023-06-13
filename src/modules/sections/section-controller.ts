@@ -11,6 +11,7 @@ import Scan from '@/modules/sections/scan/ScanSection'
 import Verification from '@/modules/sections/verification/VerificationSection'
 import Return from '@/modules/sections/return/ReturnSection'
 import { useSection } from '@/hooks/useSection'
+import { useMemo } from 'react'
 
 const sectionDictionary = {
    [SectionEnum.Where]: Where,
@@ -28,8 +29,11 @@ const sectionDictionary = {
 
 const SectionController = () => {
    const actualSection = useSection(state => state.section)
-   const section = sectionDictionary[actualSection]
-   return section()
+   const reactiveSection = useMemo(() => {
+      return sectionDictionary[actualSection]
+   }, [actualSection])
+
+   return reactiveSection()
 }
 
 export default SectionController

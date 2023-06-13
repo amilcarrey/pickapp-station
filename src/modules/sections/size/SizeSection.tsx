@@ -5,6 +5,7 @@ import { useTotem } from '@hooks/useTotem'
 import { useProperty } from '@/hooks/useProperty'
 import PageTitle from '../../elements/PageTitle'
 import BigOption from '../../elements/options/BigOption'
+import { SectionEnum } from '@/types'
 
 const sizes = ['S', 'M', 'L']
 
@@ -27,7 +28,10 @@ const Size = () => {
 
    return (
       <>
-         <div className="mt-24 flex h-full w-full flex-col items-center justify-start gap-4">
+         <div
+            key={SectionEnum.Size}
+            className="mt-24 flex h-full w-full flex-col items-center justify-start gap-4"
+         >
             <PageTitle
                title="Que tamaño de locker precisas?"
                accentWord="tamaño"

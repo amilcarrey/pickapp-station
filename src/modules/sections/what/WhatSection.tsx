@@ -11,24 +11,28 @@ import {
    PackagePlusIcon,
    ArchiveRestoreIcon,
 } from 'lucide-react'
+import { SectionEnum } from '@/types'
 import BigOptionContainer from '@/modules/elements/options/BigOptionContainer'
 
 const What = () => {
    const user = useUser((s) => s.user)
    const setOperationType = useTotem((s) => s.setOperationtype)
    const router = useRouter()
-   const [openModal, setOpenModal] = useState(false)
+   // const [openModal, setOpenModal] = useState(false)
    const updateOperationType = (operation: OperationType) => {
       setOperationType(operation)
       if (operation !== OperationType.PICKUP) return
       if (!user) return router.push('verification')
       if (user.packages.length < 2) return router.push('open')
-      return setOpenModal(true)
+      // return setOpenModal(true)
    }
 
    return (
       <>
-         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+         <div
+            key={SectionEnum.What}
+            className="container flex flex-col items-center justify-center gap-12 px-4 py-16 "
+         >
             <PageTitle title="Qué necesitas hacer?" accentWord="Qué" />
             <BigOptionContainer>
                <BigOption

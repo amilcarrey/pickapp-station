@@ -11,6 +11,7 @@ import PageTitle from '../../elements/PageTitle'
 import PropertyDetails from './elements/PropertyDetails'
 import Letterpad from '@/modules/elements/keyboard/Letterpad'
 import Numpad from '@/modules/elements/keyboard/Numpad'
+import { SectionEnum } from '@/types'
 // import Numpad from './login/elements/Numpad'
 
 const Deposit = () => {
@@ -46,7 +47,11 @@ const Deposit = () => {
 
    return (
       <>
-         <PageTitle title="A qué propiedad?" accentWord="qué" />
+         <PageTitle
+            key={SectionEnum.Deposit}
+            title="A qué propiedad?"
+            accentWord="qué"
+         />
          <div className="my-24 flex flex-col items-center justify-between">
             <div className="mb-16 flex flex-col items-center justify-center gap-10">
                <Input

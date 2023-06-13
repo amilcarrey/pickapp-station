@@ -3,19 +3,24 @@ import { Button } from '@/components/ui/button'
 import { useProperty } from '@/hooks/useProperty'
 // import { useTotem } from '@/hooks/useTotem'
 import PageTitle from '@/modules/elements/PageTitle'
-import { log } from 'console'
+import { SectionEnum } from '@/types'
 
 const KeyWords = () => {
    // const setKeywordUsed = useTotem((s) => s.setKeywordUsed)
    const keywords = ['asado', 'futbol', 'mate'] //useProperty((s) => s.property)
-   console.log(keywords)
 
    return (
       <>
-         <PageTitle title="Palabras Clave" accentWord="Clave" />
+         <PageTitle
+            key={SectionEnum.Keyword}
+            title="Palabras Clave"
+            accentWord="Clave"
+         />
          <div className="flex gap-6">
-            {keywords?.map((word) => (
-               <Button variant={'outline'}>{word.toUpperCase()}</Button>
+            {keywords?.map((word, i) => (
+               <Button key={`${word}${i}`} variant={'outline'}>
+                  {word.toUpperCase()}
+               </Button>
             ))}
          </div>
       </>

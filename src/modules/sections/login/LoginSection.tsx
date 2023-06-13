@@ -6,6 +6,7 @@ import useApi from '@/hooks/useApi'
 import Numpad from '../../elements/keyboard/Numpad'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { SectionEnum } from '@/types'
 
 const Login = () => {
    const cuiInputnRef = useRef<HTMLInputElement>(null)
@@ -33,7 +34,7 @@ const Login = () => {
 
    return (
       <>
-         <div className="text-center">
+         <div key={SectionEnum.Login} className="text-center">
             <div className="mt-2 flex flex-col items-center justify-center gap-4">
                <form className="my-24 flex flex-col items-center justify-between">
                   <div className="mb-16 flex flex-col items-center justify-center gap-10">

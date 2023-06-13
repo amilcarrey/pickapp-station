@@ -4,13 +4,16 @@ import { useTotem } from '@hooks/useTotem'
 import { OperationType } from '@/types/TotemTypes'
 import { Button } from '@/components/ui/button'
 import PageTitle from '@/modules/elements/PageTitle'
-
+import { SectionEnum } from '@/types'
 const Open = () => {
    const totem = useTotem((s) => s.totem)
 
    return (
       <>
-         <div className="mt-24 flex h-full w-full flex-col items-center justify-center gap-4 text-center">
+         <div
+            key={SectionEnum.Open}
+            className="mt-24 flex h-full w-full flex-col items-center justify-center gap-4 text-center"
+         >
             <PageTitle
                title={`${
                   totem.operationType === OperationType.PICKUP

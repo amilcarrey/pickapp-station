@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PageTitle from '@/modules/elements/PageTitle'
+import { SectionEnum } from '@/types'
 
 const Thanks = () => {
    const router = useRouter()
@@ -21,7 +22,10 @@ const Thanks = () => {
 
    return (
       <>
-         <div className="mt-24 flex h-96 w-fit flex-col items-center justify-between gap-4 px-8 leading-6">
+         <div
+            key={SectionEnum.Thanks}
+            className="mt-24 flex h-96 w-fit flex-col items-center justify-between gap-4 px-8 leading-6"
+         >
             <PageTitle
                title="Gracias por confiar en nosotros"
                accentWord="Gracias"

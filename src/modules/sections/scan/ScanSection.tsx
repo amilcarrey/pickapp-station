@@ -6,6 +6,7 @@ import PageTitle from '../../elements/PageTitle'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import Numpad from '@/modules/elements/keyboard/Numpad'
+import { SectionEnum } from '@/types'
 
 const Scan = () => {
    const [useKeyboard, setUseKeyboard] = useState(false)
@@ -13,7 +14,7 @@ const Scan = () => {
 
    const inputClases = cn(useKeyboard ? 'visible w-1/4' : 'invisible')
    return (
-      <>
+      <div key={SectionEnum.Scan}>
          <ScanLine className="mb-32 h-60 w-60 shadow-md" />
          <PageTitle
             title={!useKeyboard ? 'Escanea el QR' : 'Ingresa tu código'}
@@ -45,7 +46,7 @@ const Scan = () => {
             )}
          </div>
          {/* <GrabCode open={openCode} setOpen={setOpenCode} /> */}
-      </>
+      </div>
    )
 }
 
