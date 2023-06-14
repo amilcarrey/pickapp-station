@@ -14,7 +14,7 @@ const Scan = () => {
 
    const inputClases = cn(useKeyboard ? 'visible w-1/4' : 'invisible')
    return (
-      <div key={SectionEnum.Scan}>
+      <>
          <ScanLine className="mb-32 h-60 w-60 shadow-md" />
          <PageTitle
             title={!useKeyboard ? 'Escanea el QR' : 'Ingresa tu código'}
@@ -46,7 +46,7 @@ const Scan = () => {
             )}
          </div>
          {/* <GrabCode open={openCode} setOpen={setOpenCode} /> */}
-      </div>
+      </>
    )
 }
 
