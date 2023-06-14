@@ -13,17 +13,33 @@ import {
 } from 'lucide-react'
 import { SectionEnum } from '@/types'
 import BigOptionContainer from '@/modules/elements/options/BigOptionContainer'
+import { useSection } from '@/hooks/useSection'
 
 const What = () => {
-   const user = useUser((s) => s.user)
+   const ownerLogged = useUser((s) => s.user)
    const setOperationType = useTotem((s) => s.setOperationtype)
-   const router = useRouter()
+   const setSection = useSection((s) => s.setSection)
    // const [openModal, setOpenModal] = useState(false)
    const updateOperationType = (operation: OperationType) => {
       setOperationType(operation)
-      if (operation !== OperationType.PICKUP) return
-      if (!user) return router.push('verification')
-      if (user.packages.length < 2) return router.push('open')
+      if (operation === OperationType.RETURN)
+         return setSection(SectionEnum.Return)
+
+      if (operation === OperationType.DROP && !ownerLogged)
+         return setSection(SectionEnum.Verification)
+
+      if (operation === OperationType.DROP && ownerLogged)
+         return setSection(SectionEnum.Size)
+
+      if (operation === OperationType.PICKUP && !ownerLogged)
+         return setSection(SectionEnum.Scan)
+
+      if (
+         operation === OperationType.PICKUP &&
+         ownerLogged &&
+         ownerLogged.packages.length < 2
+      )
+         return setSection(SectionEnum.Open)
       // return setOpenModal(true)
    }
 
@@ -45,7 +61,7 @@ const What = () => {
                   title="Retirar"
                   IconProp={PackageSearchIcon}
                />
-               {true && (
+               {ownerLogged && (
                   <BigOption
                      onClick={() => updateOperationType(OperationType.RETURN)}
                      title="Devolver"
