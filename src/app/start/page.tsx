@@ -1,13 +1,10 @@
 'use client'
 import { useState } from 'react'
-import { useTotem } from '@/useTotem'
+import { useTotem } from '@hooks/useTotem'
 import RouteTransition from '@elements/RouteTransition'
 import SectionController from '@/modules/sections/section-controller'
 
 const StartPage = () => {
-   const totem = useTotem((s) => s.totem)
-
-   const [keyWords, setKeyWords] = useState(false)
    return (
       <RouteTransition>
          <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">

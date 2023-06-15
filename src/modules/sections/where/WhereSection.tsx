@@ -1,4 +1,3 @@
-import { useTotem } from '@/useTotem'
 import { Home, TruckDelivery } from 'tabler-icons-react'
 import BigOption from '../../elements/options/BigOption'
 import PageTitle from '../../elements/PageTitle'
