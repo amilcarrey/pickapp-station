@@ -1,43 +1,44 @@
 import { useEffect } from 'react'
 import { useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { useUser } from '@hooks/useUser'
-import useApi from '@/hooks/useApi'
 import Numpad from '../../elements/keyboard/Numpad'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { SectionEnum } from '@/types'
+import { useSection } from '@/hooks/useSection'
 
 const Login = () => {
    const cuiInputnRef = useRef<HTMLInputElement>(null)
    const claveInputRef = useRef<HTMLInputElement>(null)
-   const router = useRouter()
+   const setSection = useSection((s) => s.setSection)
 
    const [cui, setCui] = useState<number>()
    const [clave, setClave] = useState<number>()
    const [claveSelected, setClaveSelected] = useState(false)
 
    const user = useUser((s) => s.user)
-   const { getUser } = useApi()
+   const loginUser = useUser((s) => s.login)
    const loadingUser = useUser((s) => s.loading)
+   const errorUser = useUser((s) => s.loginError)
 
    const handleLogin = async () => {
       if (!cui || !clave) return
-      await getUser(cui, clave)
+      await loginUser(cui, clave)
    }
 
    useEffect(() => {
       if (user) {
-         router.push('/what')
+         setSection(SectionEnum.What)
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [user])
 
    return (
       <>
          <div key={SectionEnum.Login} className="text-center">
             <div className="mt-2 flex flex-col items-center justify-center gap-4">
-               <form className="my-24 flex flex-col items-center justify-between">
-                  <div className="mb-16 flex flex-col items-center justify-center gap-10">
+               <div className="my-24 flex flex-col items-center justify-between">
+                  <div className="mb-16  flex flex-col items-center justify-center gap-10">
                      {/* <label htmlFor="ciu">CIU</label> */}
                      <Input
                         readOnly
@@ -59,12 +60,20 @@ const Login = () => {
                         name="clave"
                         placeholder="Clave"
                      />
+
+                     <p
+                        className={`text-red-600 dark:text-red-400 ${
+                           errorUser ? '' : 'hidden'
+                        } `}
+                     >
+                        Credenciales incorrectas
+                     </p>
                   </div>
                   <Numpad
                      setNumber={claveSelected ? setClave : setCui}
                      nextFocus={!claveSelected ? claveInputRef : null}
                   />
-               </form>
+               </div>
             </div>
          </div>
 

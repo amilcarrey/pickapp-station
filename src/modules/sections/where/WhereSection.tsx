@@ -6,11 +6,12 @@ import { useSection } from '@hooks/useSection'
 import { SectionEnum } from '@/types'
 
 const Where = () => {
-   const setOwner = useTotem((s) => s.setOwner)
    const setSection = useSection((s) => s.setSection)
    const handleClick = (owner: boolean) => {
-      setOwner(owner)
-      setSection(SectionEnum.What)
+      if (owner) {
+         return setSection(SectionEnum.Login)
+      }
+      return setSection(SectionEnum.What)
    }
    return (
       <>

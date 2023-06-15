@@ -18,9 +18,11 @@ export interface User {
 export type UserState = {
    user: User | null
    loading: boolean
+   loginError: boolean
 }
 
 export type UserActions = {
    setUser: (user: User) => void
    reset: () => void
+   login: (ciu: number, password: number) => Promise<void>
 }
