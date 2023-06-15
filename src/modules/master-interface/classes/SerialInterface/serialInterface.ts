@@ -1,8 +1,8 @@
 import { SerialPort } from 'serialport'
 import { ReadlineParser } from '@serialport/parser-readline'
-import { config } from 'dotenv'
+// import { config } from 'dotenv'
 
-config({ path: '.env.local' })
+// config({ path: '.env.local' })
 
 export class SerialInterface {
    private static instances: Map<string, SerialInterface> = new Map<

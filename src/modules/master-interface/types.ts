@@ -14,4 +14,4 @@ enum FUNCTION_CODES {
 
 type OperationCommand = number[] | Uint8Array
 
-export { COMMAND_HEADER, FUNCTION_CODES, OperationCommand }
+export { COMMAND_HEADER, FUNCTION_CODES, type OperationCommand }
