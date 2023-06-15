@@ -4,9 +4,15 @@ import React from 'react'
 
 interface PropertyDetailsProps {
    owner: string
+   yesAction: () => void
+   noAction: () => void
 }
 
-const PropertyDetails = ({ owner }: PropertyDetailsProps) => {
+const PropertyDetails = ({
+   owner,
+   yesAction,
+   noAction,
+}: PropertyDetailsProps) => {
    return (
       <motion.div
          initial={{ opacity: 0 }}
@@ -24,8 +30,10 @@ const PropertyDetails = ({ owner }: PropertyDetailsProps) => {
 
          {/* Button section */}
          <div className="flex w-1/4 flex-col gap-6">
-            <Button>Si</Button>
-            <Button variant={'secondary'}>No</Button>
+            <Button onClick={() => yesAction()}>Si</Button>
+            <Button onClick={() => noAction()} variant={'secondary'}>
+               No
+            </Button>
          </div>
       </motion.div>
    )

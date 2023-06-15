@@ -16,5 +16,6 @@ export type PropertyState = {
 
 export type PropertyActions = {
    setProperty: (property: PropertyDetails) => void
+   fetchProperty: (keys: PropertyKey[]) => Promise<void>
    reset: () => void
 }

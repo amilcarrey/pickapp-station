@@ -60,13 +60,29 @@ const What = () => {
          >
             <PageTitle title="Qué necesitas hacer?" accentWord="Qué" />
             <BigOptionContainer>
-               <BigOption
-                  onClick={() => {
-                     updateOperationType(OperationType.DROP)
-                  }}
-                  title="Depositar"
-                  IconProp={PackagePlusIcon}
-               />
+               {ownerLogged ? (
+                  <OwnerDepositDialog
+                     title="Depositar"
+                     description=""
+                     content="¿Querés depositar algo para vos mismo?"
+                     yesAction={() => setSection(SectionEnum.Size)}
+                     noAction={() => setSection(SectionEnum.Deposit)}
+                  >
+                     <BigOption
+                        onClick={() => {}}
+                        title="Depositar"
+                        IconProp={PackagePlusIcon}
+                     />
+                  </OwnerDepositDialog>
+               ) : (
+                  <BigOption
+                     onClick={() => {
+                        updateOperationType(OperationType.DROP)
+                     }}
+                     title="Depositar"
+                     IconProp={PackagePlusIcon}
+                  />
+               )}
                {ownerLogged && ownerLogged.packages.length > 1 ? (
                   <OwnerDepositDialog
                      title="Retirar paquetes"

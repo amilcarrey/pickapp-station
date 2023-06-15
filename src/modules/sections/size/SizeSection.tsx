@@ -6,6 +6,7 @@ import { useProperty } from '@/hooks/useProperty'
 import PageTitle from '../../elements/PageTitle'
 import BigOption from '../../elements/options/BigOption'
 import { SectionEnum } from '@/types'
+import { useSection } from '@/hooks/useSection'
 
 const sizes = ['S', 'M', 'L']
 
@@ -14,16 +15,12 @@ const Size = () => {
    const totem = useTotem((s) => s.totem)
    const setSize = useTotem((s) => s.setSize)
    const keywords = useProperty((s) => s.property?.keywords)
-
+   const setSection = useSection((s) => s.setSection)
    const handleClick = (size: string) => {
       setSize(size)
-      console.log(totem)
-      console.log(keywords)
-      console.log(totem.keywordNeeded && keywords && keywords.length > 0)
-
       if (totem.keywordNeeded && keywords && keywords.length > 0)
          return router.push('/keywords')
-      return router.push('/open')
+      return setSection(SectionEnum.Open)
    }
 
    return (

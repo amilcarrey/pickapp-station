@@ -14,7 +14,7 @@ Repartidor
 
 Como visita o repartidor no se puede devolver.
 
--Retirar
+-Retirar ✅
 -> Scan o type code
 -> Open
 -> Thanks
@@ -27,7 +27,7 @@ Propietario
 -> Open & Close
 -> thanks
 
--Retirar
+-Retirar ✅
 -> Verificar si tiene mas de un pedido y preguntar si desea retirar todo.
 -> Si no quiere retirar todo: Scan o type code
 -> Open

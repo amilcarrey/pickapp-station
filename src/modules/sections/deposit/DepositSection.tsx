@@ -1,26 +1,27 @@
 'use client'
-import { motion } from 'framer-motion'
 import React, { useState, useEffect } from 'react'
-// import CustomKeyboard from '@ui/CustomKeyboard'
 import { useProperty } from '@/hooks/useProperty'
 import { formatKeys } from '@/utils'
 import useApi from '@/hooks/useApi'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
 import PageTitle from '../../elements/PageTitle'
 import PropertyDetails from './elements/PropertyDetails'
 import Letterpad from '@/modules/elements/keyboard/Letterpad'
 import Numpad from '@/modules/elements/keyboard/Numpad'
 import { SectionEnum } from '@/types'
-// import Numpad from './login/elements/Numpad'
+import { useSection } from '@/hooks/useSection'
 
 const Deposit = () => {
    const [floor, setFloor] = useState<number>()
    const [door, setDoor] = useState<string>()
    const [numeric, setNumeric] = useState<boolean>(true)
 
-   const propertyDetails = useProperty((s) => s.property)
    const { getProperyDetails } = useApi()
+
+   const propertyDetails = useProperty((s) => s.property)
+   const resetProperties = useProperty((s) => s.reset)
+   // const fetchPropertyDetails = useProperty((s) => s.fetchProperty)
+   const setSection = useSection((s) => s.setSection)
 
    useEffect(() => {
       async function fetchData() {
@@ -52,7 +53,7 @@ const Deposit = () => {
             title="A qué propiedad?"
             accentWord="qué"
          />
-         <div className="my-24 flex flex-col items-center justify-between">
+         <div className="my-16 flex flex-col items-center justify-between">
             <div className="mb-16 flex flex-col items-center justify-center gap-10">
                <Input
                   readOnly
@@ -88,7 +89,15 @@ const Deposit = () => {
          </div>
 
          {propertyDetails && floor && door ? (
-            <PropertyDetails owner={propertyDetails.mainOwner} />
+            <PropertyDetails
+               yesAction={() => setSection(SectionEnum.Open)}
+               noAction={() => {
+                  resetProperties()
+                  setFloor(0)
+                  setDoor('')
+               }}
+               owner={propertyDetails.mainOwner}
+            />
          ) : null}
       </>
    )

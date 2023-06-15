@@ -1,4 +1,4 @@
-import { PropertyDetails } from '@/types/PropertyTypes'
+import { PropertyDetails, PropertyKey } from '@/types/PropertyTypes'
 import { PackageStatus } from '@/types/UserTypes'
 import { useProperty } from './useProperty'
 import { useUser } from './useUser'

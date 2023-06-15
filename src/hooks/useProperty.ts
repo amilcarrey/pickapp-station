@@ -22,6 +22,14 @@ export const useProperty = create(
                state.property = initialState
             })
          },
+         fetchProperty: async (keys: PropertyKey[]) => {
+            const result = await Promise.resolve({
+               mainOwner: 'Juan Perez',
+               ciu: 123,
+               keywords: ['OSO', 'PERRO', 'CARRO'],
+            } as PropertyDetails)
+            set((state) => state.setProperty(result))
+         }
       }))
    )
 )
