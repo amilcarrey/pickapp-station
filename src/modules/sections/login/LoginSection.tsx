@@ -72,6 +72,7 @@ const Login = () => {
                   <Numpad
                      setNumber={claveSelected ? setClave : setCui}
                      nextFocus={!claveSelected ? claveInputRef : null}
+                     okAction={handleLogin}
                   />
                </div>
             </div>

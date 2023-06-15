@@ -38,7 +38,7 @@ const OwnerDepositDialog = ({
                <Button onClick={() => noAction()} variant={'outline'}>
                   No
                </Button>
-               <Button onClick={() => yesAction()}>Yes</Button>
+               <Button onClick={() => yesAction()}>Si</Button>
             </DialogFooter>
          </DialogContent>
       </Dialog>

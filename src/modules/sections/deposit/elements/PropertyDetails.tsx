@@ -42,7 +42,10 @@ const PropertyDetails = ({
          {/* Button section */}
          <div className="flex w-1/4 flex-col gap-6">
             {ownerLogged ? (
-               <Button onClick={() => yesAction()} variant={'secondary'}>
+               <Button
+                  onClick={() => setSection(SectionEnum.Size)}
+                  variant={'secondary'}
+               >
                   Si
                </Button>
             ) : propertyDetails &&
