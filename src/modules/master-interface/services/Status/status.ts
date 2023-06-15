@@ -1,23 +1,28 @@
-import { CommandFactory } from "../../classes/CommandFactory/commandFactory";
-import { SerialInterface } from "../../classes/SerialInterface/serialInterface";
-import { COMMAND_HEADER, FUNCTION_CODES } from "../../types";
+import { CommandFactory } from '../../classes/CommandFactory/commandFactory'
+import { SerialInterface } from '../../classes/SerialInterface/serialInterface'
+import { COMMAND_HEADER, FUNCTION_CODES } from '../../types'
 
 const all = (board: number) => {
-   const generator = new CommandFactory(COMMAND_HEADER.READ, board, 0, FUNCTION_CODES.QUERY_ALL);
-   const command = generator.getCommand();
-   generator.printFormated();
+   const generator = new CommandFactory(
+      COMMAND_HEADER.READ,
+      board,
+      0,
+      FUNCTION_CODES.QUERY_ALL
+   )
+   const command = generator.getCommand()
+   generator.printFormated()
 
-   const serialInterface = SerialInterface.getInstance();
+   const serialInterface = SerialInterface.getInstance()
    serialInterface.setBufferSizeToRead(7, true)
 
    setTimeout(() => {
-      serialInterface.writeData(command);
+      serialInterface.writeData(command)
    }, 1000)
 
    setTimeout(() => {
-      serialInterface.setBufferSizeToRead();
+      serialInterface.setBufferSizeToRead()
    }, 2000)
-   return command;
+   return command
 }
 
 const decodeStatusSingle = (data: number[] | Uint8Array) => {
@@ -35,10 +40,9 @@ const decodeStatusSingle = (data: number[] | Uint8Array) => {
    // const checksum = data[4];
 
    //Tomar el cuarto byte como el estado del locker
-   const status = data[3];
+   const status = data[3]
 
-   return parseInt(status.toString(2));
-
+   return parseInt(status.toString(2))
 }
 
 export const decodeStatusMultiple = (data: number[] | Uint8Array) => {
@@ -56,23 +60,27 @@ export const decodeStatusMultiple = (data: number[] | Uint8Array) => {
    // const checksum = data[data.length - 1];
 
    //Tomar los bytes entre el segundo y el anteultimo como los lockers
-   const lockers = data.slice(2, data.length - 2);
+   const lockers = data.slice(2, data.length - 2)
 
    //Convertir a binario cada byte dentro de lockers
    const lockersBinary = lockers.map((lock) => parseInt(lock.toString(2)))
 
-   return lockersBinary;
-
+   return lockersBinary
 }
 
 const lockerNumber = (board: number, lockerNumber: number) => {
-   const generator = new CommandFactory(COMMAND_HEADER.READ, board, lockerNumber, FUNCTION_CODES.QUERY_ALL);
-   const command = generator.getCommand();
-   generator.printFormated();
+   const generator = new CommandFactory(
+      COMMAND_HEADER.READ,
+      board,
+      lockerNumber,
+      FUNCTION_CODES.QUERY_ALL
+   )
+   const command = generator.getCommand()
+   generator.printFormated()
 
-   const serialInterface = SerialInterface.getInstance();
-   serialInterface.writeData(command);
-   return command;
+   const serialInterface = SerialInterface.getInstance()
+   serialInterface.writeData(command)
+   return command
 }
 
 export { all, lockerNumber }

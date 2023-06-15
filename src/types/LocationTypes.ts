@@ -4,12 +4,12 @@ export enum LocationType {
 }
 
 export interface LocationKey {
-   name: string,
+   name: string
    type: string
 }
 
 export interface LocationDetails {
-   type: LocationType,
+   type: LocationType
    keys: LocationKey[]
 }
 

@@ -57,7 +57,10 @@ const PickUpAllModal = ({ open, setOpen }: PickUpAllModalProps) => {
                               >
                                  ¿Quieres retirar todos tus paquetes?
                               </Dialog.Title>
-                              <p>Tienes {user?.packages.length} paquetes. Deseas retirarlos todos?</p>
+                              <p>
+                                 Tienes {user?.packages.length} paquetes. Deseas
+                                 retirarlos todos?
+                              </p>
                            </div>
                         </div>
                         <div className="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">

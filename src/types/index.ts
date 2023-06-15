@@ -15,12 +15,12 @@ export enum SectionEnum {
 }
 
 const sectionState = z.object({
-   section: z.nativeEnum(SectionEnum)
+   section: z.nativeEnum(SectionEnum),
 })
 
 const sectionActions = z.object({
    setSection: z.function(z.tuple([z.nativeEnum(SectionEnum)]), z.void()),
-   resetSection: z.function(z.tuple([]), z.void())
+   resetSection: z.function(z.tuple([]), z.void()),
 })
 
 export type SectionState = z.infer<typeof sectionState>

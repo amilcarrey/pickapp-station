@@ -7,14 +7,14 @@ export enum OperationType {
 export enum PackageSize {
    S = 'S',
    M = 'M',
-   L = 'L'
+   L = 'L',
 }
 
 export interface Totem {
-   owner: boolean | null,
-   operationType: OperationType | null,
+   owner: boolean | null
+   operationType: OperationType | null
    size: string
-   ciu: number,
+   ciu: number
    keywordNeeded: boolean
    keywordUsed: string
 }

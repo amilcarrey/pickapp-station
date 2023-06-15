@@ -1,21 +1,26 @@
-import { CommandFactory } from './commandFactory';
-import { COMMAND_HEADER, FUNCTION_CODES } from '../../types';
+import { CommandFactory } from './commandFactory'
+import { COMMAND_HEADER, FUNCTION_CODES } from '../../types'
 
 describe('Generator', () => {
-   let generator: CommandFactory;
+   let generator: CommandFactory
 
    beforeEach(() => {
-      generator = new CommandFactory(COMMAND_HEADER.OPEN, 0x01, 0x01, FUNCTION_CODES.OPEN);
-   });
+      generator = new CommandFactory(
+         COMMAND_HEADER.OPEN,
+         0x01,
+         0x01,
+         FUNCTION_CODES.OPEN
+      )
+   })
 
    describe('getCommand', () => {
       it('should return a Uint8Array with the correct command frame and CRC', () => {
-         const command = generator.getCommand();
-         const expectedCommand = [0x8a, 0x01, 0x01, 0x11, 0x9b];
+         const command = generator.getCommand()
+         const expectedCommand = [0x8a, 0x01, 0x01, 0x11, 0x9b]
 
-         expect(command).toEqual(expectedCommand);
-      });
-   });
+         expect(command).toEqual(expectedCommand)
+      })
+   })
 
    // describe('validateCRC', () => {
    //    it('should return true for a buffer with a valid CRC', () => {
@@ -46,4 +51,4 @@ describe('Generator', () => {
    //       consoleSpy.mockRestore();
    //    });
    // });
-});
+})

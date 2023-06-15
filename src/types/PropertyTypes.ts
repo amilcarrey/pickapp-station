@@ -1,12 +1,11 @@
-
 export interface PropertyDetails {
-   mainOwner: string,
-   ciu: number,
-   keywords: string[],
+   mainOwner: string
+   ciu: number
+   keywords: string[]
 }
 
 export type PropertyKey = {
-   name: string,
+   name: string
    type: string
    value: string | number
 }
@@ -16,6 +15,6 @@ export type PropertyState = {
 }
 
 export type PropertyActions = {
-   setProperty: (property: PropertyDetails) => void,
+   setProperty: (property: PropertyDetails) => void
    reset: () => void
 }

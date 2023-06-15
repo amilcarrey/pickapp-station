@@ -1,21 +1,31 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 import { devtools } from 'zustand/middleware'
-import { PropertyState, PropertyActions, PropertyDetails, PropertyKey } from '@/types/PropertyTypes'
-
+import {
+   PropertyState,
+   PropertyActions,
+   PropertyDetails,
+   PropertyKey,
+} from '@/types/PropertyTypes'
 
 const initialState = {
-   mainOwner: "Amilcar Rey",
+   mainOwner: 'Amilcar Rey',
    ciu: 124,
-   keywords: ["asado", "futbol", "mate"]
+   keywords: ['asado', 'futbol', 'mate'],
 }
-export const useProperty = create(devtools(
-   immer<PropertyState & PropertyActions>(
-      set => ({
+export const useProperty = create(
+   devtools(
+      immer<PropertyState & PropertyActions>((set) => ({
          property: initialState,
-         setProperty: (property: PropertyDetails) => set((state) => { state.property = property }),
+         setProperty: (property: PropertyDetails) =>
+            set((state) => {
+               state.property = property
+            }),
          reset: () => {
-            set((state) => { state.property = initialState })
+            set((state) => {
+               state.property = initialState
+            })
          },
-      })))
+      }))
+   )
 )

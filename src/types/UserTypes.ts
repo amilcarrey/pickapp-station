@@ -4,15 +4,15 @@ export enum PackageStatus {
 }
 
 export interface Package {
-   id: string,
-   deliveryDate: number,
-   size: string,
-   door: string,
-   status: string,
+   id: string
+   deliveryDate: number
+   size: string
+   door: string
+   status: string
 }
 export interface User {
-   ciu: number,
-   fullName: string,
+   ciu: number
+   fullName: string
    packages: Package[]
 }
 export type UserState = {

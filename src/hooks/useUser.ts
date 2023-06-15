@@ -16,16 +16,16 @@ const usersData = [
             deliveryDate: Date.now(),
             size: 'S',
             door: '1',
-            status: PackageStatus.PENDING
+            status: PackageStatus.PENDING,
          },
          {
             id: '1',
             deliveryDate: Date.now(),
             size: 'M',
             door: '1',
-            status: PackageStatus.PENDING
+            status: PackageStatus.PENDING,
          },
-      ]
+      ],
    },
    {
       ciu: 456,
@@ -37,40 +37,59 @@ const usersData = [
             deliveryDate: Date.now(),
             size: 'S',
             door: '1',
-            status: PackageStatus.PENDING
-         }
-      ]
-   }
+            status: PackageStatus.PENDING,
+         },
+      ],
+   },
 ]
 
 const initialState = null
-export const useUser = create(devtools(
-   immer<UserState & UserActions>(
-      (set) => ({
+export const useUser = create(
+   devtools(
+      immer<UserState & UserActions>((set) => ({
          user: null,
          loading: false,
          loginError: false,
          setUser: (user: User) => {
-            set((state) => { state.user = user })
+            set((state) => {
+               state.user = user
+            })
          },
          reset: () => {
-            set((state) => { state.user = initialState })
+            set((state) => {
+               state.user = initialState
+            })
          },
          login: async (ciu: number, password: number) => {
             // delay 2 seconds
-            set((state) => { state.loading = true })
-            await new Promise(resolve => setTimeout(resolve, 2000))
-            const response = Promise.resolve(usersData.filter(user => user.ciu === ciu && user.password === password)[0])
+            set((state) => {
+               state.loading = true
+            })
+            await new Promise((resolve) => setTimeout(resolve, 2000))
+            const response = Promise.resolve(
+               usersData.filter(
+                  (user) => user.ciu === ciu && user.password === password
+               )[0]
+            )
             const user = await response
 
             if (!user) {
-               set((state) => { state.loginError = true })
-               set((state) => { state.loading = false })
+               set((state) => {
+                  state.loginError = true
+               })
+               set((state) => {
+                  state.loading = false
+               })
                return
             }
 
-            set((state) => { state.user = user })
-            set((state) => { state.loading = false })
-         }
-      })))
+            set((state) => {
+               state.user = user
+            })
+            set((state) => {
+               state.loading = false
+            })
+         },
+      }))
+   )
 )
