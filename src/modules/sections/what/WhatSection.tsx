@@ -37,9 +37,17 @@ const What = () => {
       if (
          operation === OperationType.PICKUP &&
          ownerLogged &&
-         ownerLogged.packages.length < 2
+         ownerLogged.packages.length === 1 &&
+         ownerLogged.packages.length > 0
       )
          return setSection(SectionEnum.Open)
+      if (
+         operation === OperationType.PICKUP &&
+         ownerLogged &&
+         ownerLogged.packages.length > 1
+      )
+         return setSection(SectionEnum.Scan)
+
       // return setOpenModal(true)
    }
 
