@@ -8,6 +8,7 @@ import { useUser } from '@hooks/useUser'
 import { useLocation } from '@/hooks/useLocation'
 import { useProperty } from '@/hooks/useProperty'
 import { useSection } from '@/hooks/useSection'
+import { useTotem } from '@/hooks/useTotem'
 const Home = () => {
    const router = useRouter()
    const handleClick = () => {
@@ -17,12 +18,14 @@ const Home = () => {
    const resetUser = useUser((s) => s.reset)
    const getLocationDetails = useLocation((s) => s.getLocationDetails)
    const resetProperty = useProperty((s) => s.reset)
+   const resetTotem = useTotem((s) => s.reset)
    const resetSection = useSection((s) => s.resetSection)
 
    useEffect(() => {
       resetUser()
       resetProperty()
       getLocationDetails()
+      resetTotem()
       resetSection()
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])

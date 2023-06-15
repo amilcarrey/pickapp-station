@@ -88,8 +88,14 @@ const What = () => {
                      title="Retirar paquetes"
                      description="Tiene mas de un paquete por retirar."
                      content="Deseas retirar todos los paquetes?"
-                     yesAction={() => setSection(SectionEnum.Open)}
-                     noAction={() => setSection(SectionEnum.Scan)}
+                     yesAction={() => {
+                        setOperationType(OperationType.PICKUP)
+                        setSection(SectionEnum.Open)
+                     }}
+                     noAction={() => {
+                        setOperationType(OperationType.PICKUP)
+                        setSection(SectionEnum.Scan)
+                     }}
                   >
                      <BigOption
                         onClick={() => {}}
