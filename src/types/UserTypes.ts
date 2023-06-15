@@ -14,6 +14,7 @@ export interface User {
    ciu: number
    fullName: string
    packages: Package[]
+   keywords?: string[]
 }
 export type UserState = {
    user: User | null

@@ -28,6 +28,7 @@ const Deposit = () => {
          if (!floor || !door) return
          try {
             const keys = [formatKeys('floor', floor), formatKeys('door', door)]
+            console.log(keys)
             await getProperyDetails(keys)
          } catch (error) {
             console.error(error)

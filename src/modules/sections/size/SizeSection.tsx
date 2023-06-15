@@ -18,8 +18,6 @@ const Size = () => {
    const setSection = useSection((s) => s.setSection)
    const handleClick = (size: string) => {
       setSize(size)
-      if (totem.keywordNeeded && keywords && keywords.length > 0)
-         return router.push('/keywords')
       return setSection(SectionEnum.Open)
    }
 

@@ -27,7 +27,7 @@ const What = () => {
          return setSection(SectionEnum.Return)
 
       if (operation === OperationType.DROP && !ownerLogged)
-         return setSection(SectionEnum.Verification)
+         return setSection(SectionEnum.Deposit)
 
       if (operation === OperationType.DROP && ownerLogged)
          return setSection(SectionEnum.Size)

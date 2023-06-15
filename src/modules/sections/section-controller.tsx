@@ -11,6 +11,7 @@ import Scan from '@/modules/sections/scan/ScanSection'
 import Verification from '@/modules/sections/verification/VerificationSection'
 import Return from '@/modules/sections/return/ReturnSection'
 import { useSection } from '@/hooks/useSection'
+import NoKeywordSection from './noKeyword/NoKeywordSection'
 
 const SectionController = () => {
    const actualSection = useSection((state) => state.section)
@@ -28,6 +29,7 @@ const SectionController = () => {
          {actualSection === SectionEnum.Scan ? <Scan /> : null}
          {actualSection === SectionEnum.Verification ? <Verification /> : null}
          {actualSection === SectionEnum.Return ? <Return /> : null}
+         {actualSection === SectionEnum.NoKeyword ? <NoKeywordSection /> : null}
       </>
    )
 }

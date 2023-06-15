@@ -29,7 +29,15 @@ const Open = () => {
                }
             />
             <div className="mt-96 flex w-full items-center justify-center">
-               <Button onClick={() => setSection(SectionEnum.Thanks)}>
+               <Button
+                  onClick={() =>
+                     setSection(
+                        totem.keywordNeeded
+                           ? SectionEnum.Keyword
+                           : SectionEnum.Thanks
+                     )
+                  }
+               >
                   Cerrar
                </Button>
             </div>
