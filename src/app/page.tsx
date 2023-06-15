@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { useUser } from '@hooks/useUser'
 import { useLocation } from '@/hooks/useLocation'
 import { useProperty } from '@/hooks/useProperty'
+import { useSection } from '@/hooks/useSection'
 const Home = () => {
    const router = useRouter()
    const handleClick = () => {
@@ -16,11 +17,13 @@ const Home = () => {
    const resetUser = useUser((s) => s.reset)
    const getLocationDetails = useLocation((s) => s.getLocationDetails)
    const resetProperty = useProperty((s) => s.reset)
+   const resetSection = useSection((s) => s.resetSection)
 
    useEffect(() => {
       resetUser()
       resetProperty()
       getLocationDetails()
+      resetSection()
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [])
 
@@ -44,7 +47,11 @@ const Home = () => {
             height={0}
             className="h-60 w-full text-secondary"
          />
-         <PageTitle size="S" title="Presione para comenzar" accentWord="Presione" />
+         <PageTitle
+            size="S"
+            title="Presione para comenzar"
+            accentWord="Presione"
+         />
       </motion.main>
    )
 }

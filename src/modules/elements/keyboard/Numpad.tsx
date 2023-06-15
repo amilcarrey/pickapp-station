@@ -4,10 +4,11 @@ import { Button } from '@/components/ui/button'
 interface NumPadProps {
    setNumber: Dispatch<SetStateAction<number | undefined>>
    nextFocus: RefObject<HTMLInputElement> | null
+   okAction?: () => void
 }
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'BORRAR', 0, 'OK']
 
-const Numpad = ({ setNumber, nextFocus = null }: NumPadProps) => {
+const Numpad = ({ setNumber, nextFocus = null, okAction }: NumPadProps) => {
    const deleteLast = (
       setValue: Dispatch<SetStateAction<number | undefined>>
    ) => {
@@ -38,7 +39,7 @@ const Numpad = ({ setNumber, nextFocus = null }: NumPadProps) => {
    const numericUpdate = (e: number | string) => {
       if (e === 'BORRAR') return deleteLast(setNumber)
       if (e === 'OK') {
-         if (!nextFocus) return
+         if (!nextFocus) return okAction && okAction()
          return nextFocus.current && nextFocus.current.focus()
       }
 

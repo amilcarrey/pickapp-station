@@ -5,8 +5,10 @@ import { OperationType } from '@/types/TotemTypes'
 import { Button } from '@/components/ui/button'
 import PageTitle from '@/modules/elements/PageTitle'
 import { SectionEnum } from '@/types'
+import { useSection } from '@/hooks/useSection'
 const Open = () => {
    const totem = useTotem((s) => s.totem)
+   const setSection = useSection((s) => s.setSection)
 
    return (
       <>
@@ -27,7 +29,9 @@ const Open = () => {
                }
             />
             <div className="mt-96 flex w-full items-center justify-center">
-               <Button>Cerrar</Button>
+               <Button onClick={() => setSection(SectionEnum.Thanks)}>
+                  Cerrar
+               </Button>
             </div>
          </div>
       </>
