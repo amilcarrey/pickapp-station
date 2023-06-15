@@ -14,6 +14,7 @@ import {
 import { SectionEnum } from '@/types'
 import BigOptionContainer from '@/modules/elements/options/BigOptionContainer'
 import { useSection } from '@/hooks/useSection'
+import OwnerDepositDialog from './OwnerDepositDialog'
 
 const What = () => {
    const ownerLogged = useUser((s) => s.user)
@@ -60,15 +61,33 @@ const What = () => {
             <PageTitle title="Qué necesitas hacer?" accentWord="Qué" />
             <BigOptionContainer>
                <BigOption
-                  onClick={() => updateOperationType(OperationType.DROP)}
+                  onClick={() => {
+                     updateOperationType(OperationType.DROP)
+                  }}
                   title="Depositar"
                   IconProp={PackagePlusIcon}
                />
-               <BigOption
-                  onClick={() => updateOperationType(OperationType.PICKUP)}
-                  title="Retirar"
-                  IconProp={PackageSearchIcon}
-               />
+               {ownerLogged && ownerLogged.packages.length > 1 ? (
+                  <OwnerDepositDialog
+                     title="Retirar paquetes"
+                     description="Tiene mas de un paquete por retirar."
+                     content="Deseas retirar todos los paquetes?"
+                     yesAction={() => setSection(SectionEnum.Open)}
+                     noAction={() => setSection(SectionEnum.Scan)}
+                  >
+                     <BigOption
+                        onClick={() => {}}
+                        title="Retirar"
+                        IconProp={PackageSearchIcon}
+                     />
+                  </OwnerDepositDialog>
+               ) : (
+                  <BigOption
+                     onClick={() => updateOperationType(OperationType.PICKUP)}
+                     title="Retirar"
+                     IconProp={PackageSearchIcon}
+                  />
+               )}
                {ownerLogged && (
                   <BigOption
                      onClick={() => updateOperationType(OperationType.RETURN)}
