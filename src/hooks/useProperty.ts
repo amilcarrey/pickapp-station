@@ -29,7 +29,7 @@ export const useProperty = create(
                keywords: ['OSO', 'PERRO', 'CARRO'],
             } as PropertyDetails)
             set((state) => state.setProperty(result))
-         }
+         },
       }))
    )
 )

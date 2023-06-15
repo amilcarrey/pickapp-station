@@ -1,6 +1,4 @@
-import {
-   PropertyKey,
-} from '@/types/PropertyTypes'
+import { PropertyKey } from '@/types/PropertyTypes'
 
 const formatKeys = (name: string, value: string | number) => {
    return {

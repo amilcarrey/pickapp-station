@@ -59,15 +59,18 @@ export default function useApi() {
    // Esto hay que cambiar
    const getProperyDetails = async (keys: PropertyKey[]) => {
       console.log(keys)
-      const detail = keys[0].value == 1 ? {
-         mainOwner: 'Juan Perez',
-         ciu: 123,
-         keywords: ['OSO', 'PERRO', 'CARRO'],
-      } : {
-         mainOwner: 'Mariana Sanchez',
-         ciu: 123,
-         keywords: [],
-      }
+      const detail =
+         keys[0].value == 1
+            ? {
+                 mainOwner: 'Juan Perez',
+                 ciu: 123,
+                 keywords: ['OSO', 'PERRO', 'CARRO'],
+              }
+            : {
+                 mainOwner: 'Mariana Sanchez',
+                 ciu: 123,
+                 keywords: [],
+              }
       const result = await Promise.resolve(detail as PropertyDetails)
       setPropertyDetails(result)
    }

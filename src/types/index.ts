@@ -12,7 +12,7 @@ export enum SectionEnum {
    What,
    Where,
    Return,
-   NoKeyword
+   NoKeyword,
 }
 
 const sectionState = z.object({
